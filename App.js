@@ -4,6 +4,12 @@
 
 import React, { Component } from "react";
 import { parse } from 'fast-xml-parser';
+import {
+  StyleSheet,
+  View,
+  Text
+} from "react-native";
+
 export default class App extends Component {
 
   constructor() {
@@ -53,8 +59,37 @@ export default class App extends Component {
 
   render() {
     return (
-      <>
-      </>
+      <View style={styles.container}>
+        <View style={styles.item}>
+          <Text style={styles.headers}>Fields</Text>
+          <Text>First Name:</Text>
+          <Text>Last Name:</Text>
+          <Text>Phone:</Text>
+        </View>
+        <View style={styles.item}>
+          <Text style={styles.headers}>Values</Text>
+          <Text>{this.state.fname}</Text>
+          <Text>{this.state.lname}</Text>
+          <Text>{this.state.phone}</Text>
+        </View>
+      </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    padding: 4,
+  },
+  headers: {
+    fontSize: 18,
+    backgroundColor: '#ffaaff',
+    fontWeight: 'bold',
+    margin: 1,
+    textAlign: 'center',
+  },
+  item: {
+    width: '50%',
+  },
+});
